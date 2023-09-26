@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RadioGroup
+        android:id="@+id/rd_GrouAuto"
+        android:layout_width="294dp"
+        android:layout_height="156dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/rd_Super"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:text="@string/rb_supermercado" />
+
+        <RadioButton
+            android:id="@+id/rd_Posto"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:text="@string/rb_posto" />
+
+        <RadioButton
+            android:id="@+id/rd_Cine"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:text="@string/rb_cinema" />
+
+        <RadioButton
+            android:id="@+id/rd_Empresa"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:text="@string/rb_empresa" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_nome_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="Nome"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/nome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.651"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.281"
+        tools:ignore="LabelFor,MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="86dp"
+        android:layout_height="32dp"
+        android:text="@string/tv_nome"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.294" />
+
+    <EditText
+        android:id="@+id/et_number_qtd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="Numero"
+        android:ems="10"
+        android:inputType="number"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.651"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.628"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/cb_banheiro_id"
+        android:layout_width="214dp"
+        android:layout_height="43dp"
+        android:text="@string/ar_condicionado"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_caixa"
+        android:layout_width="76dp"
+        android:layout_height="30dp"
+        android:text="@string/tv_caixa"
+        android:textAlignment="textEnd"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437" />
+
+    <TextView
+        android:id="@+id/tv_lugares"
+        android:layout_width="76dp"
+        android:layout_height="30dp"
+        android:text="@string/lugares"
+        android:textAlignment="textEnd"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.636" />
+
+    <TextView
+        android:id="@+id/tv_capacidade"
+        android:layout_width="76dp"
+        android:layout_height="30dp"
+        android:text="@string/capacidade"
+        android:textAlignment="textEnd"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.54" />
+
+    <EditText
+        android:id="@+id/et_number_caixa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="Numero"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@string/caixa"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/et_number_cap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="Numero"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.651"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/et_cnpj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="Fabricante"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/cnpj"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.651"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="82dp"
+        android:layout_height="34dp"
+        android:text="@string/tv_cnpj"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.371" />
+
+    <Button
+        android:id="@+id/bt_editar"
+        android:layout_width="179dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/editar_empresa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/bt_inserir"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.892" />
+
+    <Button
+        android:id="@+id/bt_inserir"
+        android:layout_width="185dp"
+        android:layout_height="45dp"
+        android:text="@string/bt_inserir_nova_empresa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.892"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/bt_gerenciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_gereciar_empresas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <EditText
+        android:id="@+id/et_item_edit"
+        android:layout_width="85dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.791"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_editado"
+        android:layout_width="120dp"
+        android:layout_height="24dp"
+        android:text="@string/item_editado"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

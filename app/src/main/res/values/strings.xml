@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Manager</string>
+    <string name="tv_nome">Nome:</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="caixa">Caixa</string>
+    <string name="capacidade">Capacidade</string>
+    <string name="ar_condicionado">Ar condicionado</string>
+    <string name="lugares">Lugares:</string>
+    <string name="tv_caixa">Caixa</string>
+    <string name="bt_inserir_nova_empresa">Inserir nova empresa</string>
+    <string name="bt_gereciar_empresas">Gereciar Empresas</string>
+    <string name="tv_cnpj">CNPJ:</string>
+    <string name="nome">Nome</string>
+    <string name="rb_empresa">Empresa</string>
+    <string name="rb_cinema">Cinema</string>
+    <string name="rb_posto">Posto</string>
+    <string name="rb_supermercado">Supermercado</string>
+    <string name="item_removido">Item removido:</string>
+    <string name="voltar">Voltar</string>
+    <string name="remover">Remover Empresa</string>
+    <string name="editar_empresa">Editar Empresa</string>
+    <string name="item_editado">Item editado:</string>
+</resources>
