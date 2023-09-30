@@ -9,6 +9,6 @@ class Cinema constructor (nome: String, cnpj: String, caixa: Float,  QtdAssento:
     }
 
     override fun toString(): String {
-        return super.toString()+" Quantiidade de Assentos: "+ this.QtdAssento
+        return super.toString()+" - Quantiidade de Assentos:"+ this.QtdAssento
     }
 }

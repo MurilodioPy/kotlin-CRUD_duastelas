@@ -8,7 +8,7 @@ class Supermercado constructor (nome: String, cnpj: String, caixa : Float, arCon
         this.arCondicionado = arCondicionado
     }
 
-    fun ComAr(arCondicionado : Boolean) : String{
+    private fun ComAr(arCondicionado : Boolean) : String{
         if (arCondicionado){
             return "Com Ar Condicionado"
         }else{
@@ -17,7 +17,7 @@ class Supermercado constructor (nome: String, cnpj: String, caixa : Float, arCon
     }
 
     override fun toString(): String {
-        return super.toString()+ " " + ComAr(this.arCondicionado)
+        return super.toString()+ " - " + ComAr(this.arCondicionado)
     }
 
 

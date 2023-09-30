@@ -9,6 +9,6 @@ class Posto constructor (nome: String, cnpj: String, caixa: Float, capacidade: F
     }
 
     override fun toString(): String {
-        return super.toString()+" Capacidade: "+ capacidade
+        return super.toString()+" - Capacidade: "+ capacidade
     }
 }

@@ -20,4 +20,11 @@
     <string name="remover">Remover Empresa</string>
     <string name="editar_empresa">Editar Empresa</string>
     <string name="item_editado">Item editado:</string>
+    <string name="tela_salvar">Tela Salvar</string>
+    <string name="total_caixa">Total Caixa:</string>
+    <string name="somar_caixa">Somar caixa</string>
+    <string name="recuperar_lista_salva">Recuperar lista Salva</string>
+    <string name="salvar">Salvar</string>
+    <string name="nome_do_arquivo">Nome do arquivo</string>
+    <string name="dado_recuperado">Dado recuperado:</string>
 </resources>

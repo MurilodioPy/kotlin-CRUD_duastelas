@@ -234,12 +234,25 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/bt_gerenciar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/bt_tela_remover"
+        android:layout_width="185dp"
+        android:layout_height="46dp"
         android:text="@string/bt_gereciar_empresas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/bt_tela_dados"
+        android:layout_width="185dp"
+        android:layout_height="46dp"
+        android:text="@string/tela_salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
@@ -255,21 +268,21 @@
         app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791"
+        app:layout_constraintVertical_bias="0.803"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tv_editado"
-        android:layout_width="120dp"
-        android:layout_height="24dp"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
         android:text="@string/item_editado"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.786"
+        app:layout_constraintVertical_bias="0.804"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

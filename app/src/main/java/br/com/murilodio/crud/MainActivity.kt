@@ -16,6 +16,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity() {
+
     //VIEW
     lateinit var tv_lugares : TextView
     lateinit var tv_capacidade : TextView
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var bt_inserir : Button
     lateinit var bt_editar : Button
     lateinit var bt_gerenciar : Button
+    lateinit var bt_tela_dados : Button
 
     //EDITTEXT
     lateinit var et_nome : EditText
@@ -41,6 +43,18 @@ class MainActivity : AppCompatActivity() {
     //ADAPTER
     var adaptador : ArrayAdapter<String>? = null
 
+    var listEmpresa = ArrayList<String>()
+
+    val register = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        if (result.resultCode == RESULT_OK) {
+            result.data?.let {
+                if (it.hasExtra("listaAtualizada")) {
+                    listEmpresa = it.getStringArrayListExtra("listaAtualizada") ?: ArrayList()
+                }
+            }
+        }
+    }
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +67,8 @@ class MainActivity : AppCompatActivity() {
         //BUTTON
         bt_inserir = findViewById(R.id.bt_inserir)
         bt_editar = findViewById(R.id.bt_editar)
-        bt_gerenciar = findViewById(R.id.bt_gerenciar)
+        bt_gerenciar = findViewById(R.id.bt_tela_remover)
+        bt_tela_dados = findViewById(R.id.bt_tela_dados)
 
         //EDITTEXT
         et_nome = findViewById(R.id.et_nome_id)
@@ -67,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         cb_Arcondicionado = findViewById(R.id.cb_banheiro_id)
         radio_Group = findViewById(R.id.rd_GrouAuto)
 
-        var listEmpresa = ArrayList<String>()
         adaptador = ArrayAdapter(this, android.R.layout.simple_list_item_1, listEmpresa)
 
         var tipo = 0
@@ -101,76 +115,99 @@ class MainActivity : AppCompatActivity() {
                     et_number_cap.isEnabled = false
                     tipo = 3
                 }
-
             }
         }
-
+        //Inserir item na lista
         bt_inserir.setOnClickListener {
-            var inserido = inserir(tipo)
-            listEmpresa.add(inserido)
-            Tostado(inserido)
+            var inserido = inserir(tipo, listEmpresa)
+            if(inserido != "null"){
+                listEmpresa.add(inserido)
+                tostado(inserido)
+            }
         }
-
+        //Editar item da lista
         bt_editar.setOnClickListener {
-            var editado = ""
-            var inserido = ""
-            if (testeVazio(et_item_edit)){
+            if (testeNaoVazio(et_item_edit)){
                 var index = et_item_edit.text.toString().toInt()
                 if(index < listEmpresa.size){
-                    editado = listEmpresa.get(index)
-                    Tostado(editado)
-                    listEmpresa.removeAt(index);
-                    inserido = inserir(tipo)
-                    Tostado(inserido)
-                    listEmpresa.add(index , inserido)
+                    listEmpresa.removeAt(index)
+                    listEmpresa.add(index , inserir(tipo, listEmpresa))
                 }
             }
         }
-
+        //Entrar na tela de gerenciamento
         bt_gerenciar.setOnClickListener {
             Intent(this, Manager::class.java).let {
                 it.putStringArrayListExtra("lista", listEmpresa)
                 register.launch(it)
             }
         }
-
+        //Entrar na tela de salvamento de dados
+        bt_tela_dados.setOnClickListener {
+            Intent(this, SalvarDados::class.java).let {
+                it.putStringArrayListExtra("lista", listEmpresa)
+                register.launch(it)
+            }
+        }
     }
-
+    //Limpar campos EditText
     fun limpar(){
         et_nome.setText("");
         et_cnpj.setText("");
         et_number_caixa.setText("");
     }
 
-    fun Tostado(mensagem: String){
+    //Cria Toast
+    fun tostado(mensagem: String){
         Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show()
     }
 
-    fun testeVazio(valor : EditText) : Boolean{
+    //Testa EditText vazio
+    fun testeNaoVazio(valor : EditText) : Boolean{
         if (valor.getText().isNotEmpty()){
             return true
         }
         return false
     }
 
-    fun inserir(tipo : Number) : String{
+    //
+    fun inserir(tipo : Number, listaEmpresa: ArrayList<String>) : String{
+        // Dados inseridos pelo usuário
+        val nome = et_nome.text.toString()
+        val cnpj = et_cnpj.text.toString()
+        val caixa = et_number_caixa.text.toString().toFloat()
 
-        var newEmpresa = when(tipo) {
-            1 -> Supermercado(et_nome.text.toString(),et_cnpj.text.toString(), et_number_caixa.text.toString().toFloat(), cb_Arcondicionado.isChecked) ;
-            2 -> Posto( et_nome.text.toString(), et_cnpj.text.toString(), et_number_caixa.text.toString().toFloat(), et_number_cap.text.toString().toFloat())
-            3 -> Cinema(et_nome.text.toString(), et_cnpj.text.toString(), et_number_caixa.text.toString().toFloat(), et_number_qtd.text.toString().toInt())
-            else -> Empresa(et_nome.text.toString(), et_cnpj.text.toString(), et_number_caixa.text.toString().toFloat())
+        // Valida os dados
+        if (!testeNaoVazio(et_nome)) {
+            tostado("O nome é obrigatório")
+        } else if (!testeNaoVazio(et_cnpj)) {
+            tostado("O CNPJ é obrigatório")
+        }else if (testeCNPJ(cnpj, listaEmpresa)) {
+                tostado("O CNPJ já existe")
+        } else {
+            // Cria uma nova empresa
+            var newEmpresa = when(tipo) {
+                1 -> Supermercado(nome, cnpj, caixa, cb_Arcondicionado.isChecked) ;
+                2 -> Posto( nome, cnpj, caixa, et_number_cap.text.toString().toFloat())
+                3 -> Cinema(nome, cnpj, caixa, et_number_qtd.text.toString().toInt())
+                else -> Empresa(nome, cnpj, caixa)
+            }
+
+            // Adiciona a empresa à lista
+            return newEmpresa.toString()
         }
-        return newEmpresa.toString()
+        return "null"
     }
-
-    val register = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-        if (result.resultCode == RESULT_OK) {
-            result.data?.let {
-                if (!it.hasExtra("lista")) {
-
-                }
+    //testa se CNPJ existe
+    fun testeCNPJ(cnpj : String, listaEmpresa : ArrayList<String>) : Boolean{
+        //verificar se o cnpj já existe
+        listaEmpresa.forEach(){
+            var objeto = it.split(" - ")
+            var cnpjObject = objeto[1].split(": ")
+            if(cnpjObject[1].equals(cnpj)){
+                return true
             }
         }
+        return false
     }
 }
