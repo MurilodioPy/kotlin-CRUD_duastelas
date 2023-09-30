@@ -1,4 +1,4 @@
-<hr>
+# Prova 1
 
 Um empresário atua em três diferentes ramos. Ele possui Supermercados e postos de gasolina. Os atributos da classe mãe são:
 - Nome [String]
@@ -11,9 +11,7 @@ Um empresário atua em três diferentes ramos. Ele possui Supermercados e postos
 - Postos de gasolina: capacidade do tanque de gasolina (float)
 - Cinemas: quantidade de assentos (int)
 
-<hr>
-
-### Descriação:
+### Descrição:
 
 O programa deve ser capaz de gerenciar todos os tipos de empreendimentos através do celular.
 O usuário poderá:
